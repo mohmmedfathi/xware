@@ -1,4 +1,4 @@
-#create faculty Database Postgresql
+**#create faculty Database Postgresql**
 
 create table if not exists Faculty(
 id int primary key NOT NULL,
