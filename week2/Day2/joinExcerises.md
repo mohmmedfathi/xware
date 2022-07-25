@@ -5,6 +5,8 @@
 # This is Join Exercise
 ## Using College Management System Database With Joins
 ### Select Subject id, Subject Name, Subject Code, Course Duration in One Query
+![carbon](https://user-images.githubusercontent.com/64088888/180866726-9392b962-d00c-4364-9850-c69eabe550a7.svg)
+
 ```bash
 select subject.id,subject.name,subject.code,course.duration 
 from subject
