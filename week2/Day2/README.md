@@ -20,7 +20,6 @@
   * Try to commit the transaction. What happens?
   * Try to rollback the transaction. What happens?
   
-======================================================================================
 ## This is Join Exercise
 
 * Using College Management System Database With Joins
