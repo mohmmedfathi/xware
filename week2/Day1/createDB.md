@@ -1,5 +1,6 @@
-**#create faculty Database Postgresql**
+# create faculty Database Postgresql
 
+```
 create table if not exists Faculty(
 id int primary key NOT NULL,
 name varchar(20) NOT NULL
@@ -69,4 +70,5 @@ create table if not exists Exams(
 	date varchar(20) NOT NULL,
 	duration varchar(20)
 );
-	
+
+```
