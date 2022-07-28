@@ -1,27 +1,43 @@
 ## MongoDB Basics
 ### Check monosh Version
-``` mongosh --version ```
+``` 
+mongosh --version 
+```
 
 ### Start the Mongo Shell
-``` mongosh ```
+``` 
+mongosh 
+```
 
 ### Show Current Database
-```db ```
+```
+db 
+```
 
 ### Show All Databases
-``` show dbs ``` 
+```
+show dbs 
+``` 
 
 ### Create Or Switch Database
- ``` use hamada ``` 
+ ``` 
+ use hamada 
+ ``` 
 
 ### Drop Database
- ``` db.dropDatabase() ``` 
+ ``` 
+ db.dropDatabase() 
+ ``` 
 
 ### Create Collection
- ``` db.createCollection('friends') ``` 
+ ```
+ db.createCollection('friends') 
+ ``` 
 
 ### Show Collections
- ``` show collectionName ```
+ ``` 
+ show collectionName 
+ ```
 ## Insert Document
 
 ``` sql
