@@ -77,8 +77,7 @@ db.posts.deleteMany({ category: 'Tech' })
 ```
 
 ## COMPARISON OPERATORS
-![Screenshot from 2022-07-26 13-10-24](https://user-images.githubusercontent.com/64088888/181561753-661881fa-4c5c-460b-8f3f-4a1ce8aeec38.png)
-
+![Screenshot from 2022-07-28 15-32-15](https://user-images.githubusercontent.com/64088888/181562624-e1b6e25d-ec36-42da-962c-fb40f8dbb7b3.png)
 
 
 
