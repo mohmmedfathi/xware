@@ -1,26 +1,30 @@
-# Day 5
-# Install Postgresql
-* >>>sudo apt update
+# Day :five:
+## :beginner: Install Postgresql
 
-* >>> sudo apt install postgresql postgresql-contrib
+```
+  sudo apt update
 
-* >>>sudo systemctl start postgresql.service
+  sudo apt install postgresql postgresql-contrib
 
-* >>>service posgresql status
+  sudo systemctl start postgresql.service
 
-* >>>sudo -u postgres psql
+  service posgresql status
 
-* >>>sudo systemctl restart postgresql
+  sudo -u postgres psql
 
-# Install pgAdmin
-* >>> sudo -u postgres psql
+  sudo systemctl restart postgresql
+```
 
-* >>> sudo apt-get update
+## :beginner: Install pgAdmin
+ ```
+ sudo -u postgres psql
 
-* >>> sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+ sudo apt-get update
 
-* >>> sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update
+ sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
 
-* >>> sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+ sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update
 
-* >>> sudo apt istall pgadmin4
+ sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+ sudo apt istall pgadmin4
