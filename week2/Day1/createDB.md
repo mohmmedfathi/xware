@@ -1,4 +1,4 @@
-# create faculty Database Postgresql
+# :beginner: create faculty Database Postgresql
 
 ```
 create table if not exists Faculty(
