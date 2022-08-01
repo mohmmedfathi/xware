@@ -2,8 +2,6 @@
 
 # Implement College Management System Database :school_satchel: Using CLI.
 
-**Input Faculty Info Like This:**
-
 ## :hammer:  Please Enter Faculty Name: Then User Can Input The Name
 ```python
 faculty_name= input ("Please Enter Faculty Name:")
