@@ -42,17 +42,18 @@ while True:
     print(" 20 ---> update Specific Student Info")
     print(" 21 ---> read Specific Student Info")
     print(" 22 ---> retrieve all Student info ")
+    print(" 23 ---> Link Course To Subject")
+    print(" 24 ---> Link Professor To Subject")
+    print("--------------------------------")
+    
+    print(" 25 ---> Reading All Professors Info")
+    print(" 26 ---> update Specific Professor Info")
+    print(" 27 ---> read Specific Professor Info")
+    print(" 28 ---> retrieve all Professor info ")
     
     print("--------------------------------")
     
-    print(" 23 ---> Reading All Professors Info")
-    print(" 24 ---> update Specific Professor Info")
-    print(" 25 ---> read Specific Professor Info")
-    print(" 26 ---> retrieve all Professor info ")
-    
-    print("--------------------------------")
-    
-    print(" 27 ---> exit from program")
+    print(" 29 ---> exit from program")
     
     x = int(input())
     if (x == 1):
@@ -92,22 +93,27 @@ while True:
     elif(x==18):
        print(Exams.retrieve_list())
     elif (x == 19):
-        Student.reading_Students()
+        Student.Reading_All_Subjects_Info()
     elif (x==20):
         Student.update_specific_Students_Info()
     elif(x==21):
        print(Student.read_specific_Students_Info)
     elif(x==22):
-       print(Student.retrieve_list())
+       Student.retrieve_list()
     elif (x == 23):
-        Professor.reading_Professors()
+        Student.Link_Course_To_Subject()
     elif (x==24):
+        Student.Link_Professor_To_Subject()
+        
+    elif (x == 25):
+        Professor.reading_Professors()
+    elif (x==26):
         Professor.update_specific_Professors_Info()
-    elif(x==25):
-       print(Professor.read_specific_Professor_Info())
-    elif(x==26):
-       print(Professor.retrieve_list())
     elif(x==27):
+       print(Professor.read_specific_Professor_Info())
+    elif(x==28):
+       print(Professor.retrieve_list())
+    elif(x==29):
         break
     else :
         print("you entered invalid number.")

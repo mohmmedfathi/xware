@@ -3,7 +3,7 @@ lst = list()
 
 def creating_faculty():
     print("faculty is created")
-def reading_faculty():
+def Reading_All_Subjects_Info():
      dic = dict()
 
      id = int(input(f"Enter id of faculty " + " : "))
@@ -94,7 +94,7 @@ def link_professors_to_Fuculity():
         Professors[id] = {name,ssn,department,age,nationality,city,salary}
         temp[id] = {name,ssn,department,age,nationality,city,salary}
         lst.append(temp)
-    return Professors
+    
         
 def link_Departments_to_Fuculity():
     number_of_department = int(input("How Many Department in The Faculty: "))
