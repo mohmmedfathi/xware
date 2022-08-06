@@ -53,9 +53,3 @@ class Department:
             print("you cant enter inter and string together ")
 
 
-d = Department()
-d.creating_department()
-d.reading_all_departments_info()
-d.reading_specific_departments_info()
-d.update_specific_department_info()
-d.reading_all_departments_info()

@@ -67,10 +67,3 @@ class Professors:
         else:
             print("you cant enter inter and string together ")
 
-
-d = Professors()
-d.creating_professors()
-d.reading_all_professors_info()
-d.reading_specific_professor_info()
-d.update_specific_professor_info()
-d.reading_all_professors_info()

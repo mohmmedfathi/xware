@@ -153,6 +153,3 @@ class Subject:
         self.professor_lst.append(temp)
 
 
-s = Subject()
-s.creating_subject()
-s.reading_specific_subject_info()

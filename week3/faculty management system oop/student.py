@@ -67,9 +67,3 @@ class Students:
         else:
             print("you cant enter inter and string together ")
 
-d = Students()
-d.creating_students()
-d.reading_all_students_info()
-d.reading_specific_student_info()
-d.update_specific_student_info()
-d.reading_all_students_info()

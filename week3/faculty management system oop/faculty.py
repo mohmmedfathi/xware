@@ -130,11 +130,3 @@ class faculty:
             temp[dep_id] = dep_name
 
             self.department_lst.append(temp)
-
-f = faculty()
-#f.create_faculty()
-#f.update_faculty_info()
-#f.reading_faculty_info()
-f.link_departments_to_faculty()
-#f.link_professors_to_faculty()
-f.reading_faculty_info()

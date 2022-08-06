@@ -150,8 +150,3 @@ class Course:
         }
         self.Exams_lst.append(temp)
 
-
-c= Course()
-
-c.link_professor_to_course()
-c.reading_all_courses_info()

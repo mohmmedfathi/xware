@@ -67,9 +67,3 @@ class Exams:
         else:
             print("you cant enter inter and string together ")
 
-d = Exams()
-d.creating_exams()
-d.reading_all_exams_info()
-d.reading_specific_exam_info()
-d.update_specific_exam_info()
-d.reading_all_exams_info()
