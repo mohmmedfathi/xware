@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CREATE USER</h1>
+    <form method= 'post'>
+        <input type="text"  name="user_name" placeholder="please enter user name"><b></b>
+        <input type="email" name="user_email" placeholder="please enter email"><b></b>
+        <input type="number" name= "user_age" placeholder="please enter age"><b></b>
+        
+        <input type="submit" value="create user"><b></b>
+      
+
+        {% csrf_token %}
+
+    </form>
+</body>
+</html>
