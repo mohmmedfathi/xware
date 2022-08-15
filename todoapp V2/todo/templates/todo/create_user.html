@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content%}
+
+  <h1>Create User</h1>
+  {% if result == 'Valid' %}
+      <p>{{Validated_firstname}}</p>
+      <p>{{Validated_lastname}}</p>
+      <p>{{Validated_subject}}</p>
+      <img src="{{ user.image.url }}" alt="img">
+  {% elif result == 'Not Valid' %}
+    <p>Not Valid date</p>
+  {% else %}
+    <p>Please Enter Any Data</p>
+  {% endif %}
+  <form method= 'post' enctype="multipart/form-data">
+    <input type="text"  name="firstname" placeholder="please enter user name"><br>
+    <input type="text" name="lastname" placeholder="please enter email"><br>
+    <input type="number" name= "subject" placeholder="please enter age"><br>
+    <input type="file" name = "image">
+    <input type="submit" value="create user"><b></b>
+    
+    {% csrf_token %}
+
+  {% endblock%}
+
+    
