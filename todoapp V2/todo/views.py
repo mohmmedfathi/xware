@@ -10,6 +10,7 @@ from .forms import Create_Student as Create_User_Form
 from .task_form import Create_task
 from .models import User
 from .models import tasks
+from django.views.decorators.http import require_http_methods,require_GET,require_POST
 # Create your views here.
 
 def create_user(request):
@@ -154,7 +155,7 @@ def update_user(request):
             x.id = newid
             last_id_not_found = False
             new_id_not_found = False
-            
+    x.save()   
     return render(request,'update_user.html',{
             'last_id_not_found' : last_id_not_found,
             'new_id_not_found' : new_id_not_found,
