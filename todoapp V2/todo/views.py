@@ -6,49 +6,59 @@ import imp
 from urllib import response
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import Create_Student as Create_User_Form
+from .forms import Create_Student as Create_User_Form, Create_User_Model_Form
 from .task_form import Create_task
 from .models import User
 from .models import tasks
 from django.views.decorators.http import require_http_methods,require_GET,require_POST
+from django.views import View
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 
-def create_user(request):
- if request.session.has_key('username'):
-    if request.method =='GET':
-        return render(request,'todo/create_user.html')
-    else :
-        form = Create_User_Form(request.POST,request.FILES)
+class CreateUserView(View):
+    def get(self,request):
+        form = Create_User_Model_Form()
+        return render(request,'todo/create_user.html',{
+            'form':form
+        })
+        
+       # if request.session.has_key('username'):
+
+    def post (self,request):
+        form = Create_User_Model_Form(request.POST)
         if form.is_valid():
-            user = User(
-                firstname = form.cleaned_data['firstname'],
-                lastname = form.cleaned_data['lastname'],
-                subject = form.cleaned_data['subject'],
-                image = form.cleaned_data['image']
+            user = form.save()
+            """
+            user = User.objects.create_user(
+                username = form.cleaned_data['username'],
+                email = form.cleaned_data['email'],
+                
+                password = form.cleaned_data['password']
             )
-            user.save()
-            print(user.image.url)
+            """
+            
             return render(request,'todo/create_user.html',{
                 'result' : 'Valid',
-                'Validated_firstname' : user.firstname,
-                'Validated_lastname' : user.lastname,
-                'Validated_subject' : user.subject,
-                'user' : user
+                'user' : user,
+                'form' : form
             })
         else:
-            print(form.errors)
             return render(request,'todo/create_user.html', {
                 'result' : 'Not Valid',
+                'errors' : form.errors,
+                'form' : form
             })
- else:
-     return HttpResponse("متستعبطش يايـــوزر واعمل تسجيل دخول")
-            
-def create_task(request):
-     if request.method =='GET':
-         return render (request,'todo/create_task.html')
-     else:
-         form = Create_task(request.POST)
-         if form.is_valid():
+
+
+class Create_task_view(View):
+    
+    def get(self,request):
+        return render (request,'todo/create_task.html')
+    
+    def post(self,request):
+        form = Create_task(request.POST)
+        if form.is_valid():
              
              task = tasks(
                  name = form.cleaned_data['name'],
@@ -66,7 +76,7 @@ def create_task(request):
                 'Validated_finished_date' : task.finished_date,
                 'Validated_task_note' : task.task_note,
             })
-         else:
+        else:
                return render(request,'todo/create_task.html', {
                 'result' : 'Not Valid',
             })
@@ -74,6 +84,8 @@ def create_task(request):
          
         
 def update_task(request):
+    if not request.user.is_authenticated:
+        return HttpResponse('You are forbidden from updating Users')
     last_id_not_found = True
     new_id_not_found = True
     x = tasks.objects.filter(id = request.GET.get('id')).first()
@@ -93,8 +105,11 @@ def update_task(request):
             'before_id' : before_id,
             'newid' : newid
         })
+        
+
     
 def delete_task(request):
+    
     x = tasks.objects.filter(id = request.GET.get('id')).first()
     if x is not None:
         x.delete()
@@ -107,6 +122,7 @@ def delete_task(request):
         })
         
 def retrieve_task(request):
+    
     user = tasks.objects.filter(id=request.GET.get('id')).first()
     # print(user)
     if user ==None:
@@ -118,7 +134,8 @@ def retrieve_task(request):
      })
 
 def list_users(request):
-    
+    if not request.user.is_authenticated:
+        return HttpResponse('You are forbidden from listing Users')
     first_time = True
     if 'Horry'  in request.COOKIES:
         first_time = False
@@ -126,9 +143,9 @@ def list_users(request):
     user_list = []
     for user in users:
         user_list.append({
-            'u_name' : user.firstname,
-            'u_lastname' : user.lastname,
-            'u_subject' : user.subject
+            'u_name' : user.username,
+            'u_lastname' : user.email,
+            'u_subject' : user.password
         })
     
     response = render (request,'todo/list_users.html',{
@@ -142,7 +159,8 @@ def list_users(request):
 
 
 def update_user(request):
-    
+    if not request.user.is_authenticated:
+        return HttpResponse('You are forbidden from updating Users')
     last_id_not_found = True
     new_id_not_found = True
     x = User.objects.filter(id = request.GET.get('id')).first()
@@ -167,6 +185,9 @@ def update_user(request):
             
         
 def delete_user(request):
+    
+    if not request.user.is_authenticated:
+        return HttpResponse('You are forbidden from deleting Users')
     x = User.objects.filter(id = request.GET.get('id')).first()
     if x is not None:
         x.delete()
@@ -180,6 +201,8 @@ def delete_user(request):
 
 
 def retrieve_user(request):
+    if not request.user.is_authenticated:
+        return HttpResponse('You are forbidden from retrieving Users')
     user = User.objects.filter(id=request.GET.get('id')).first()
     # print(user)
     if user ==None:
@@ -190,25 +213,31 @@ def retrieve_user(request):
         'user' : user
      })
 
-def login(request):
-    if request.method =='POST':
-        
-        request.session['username'] = request.POST['username']
-        request.session['password'] = request.POST['password']
-        return render(request,'login.html' ,{
-            'logged' : True
-        })
-    else:
-        return render(request,'login.html')
-            
-  
        
+class Logout(View):
+    def get (self,request):
+        logout(request)
+        return render(request,'login.html')
 
-def logout(request):
-    try:
-      del request.session['username']
-      del request.session['password']
-    except:
-      pass
-    return HttpResponse("<strong>You are logged out.</strong>")
+class Login(View):
+    def get (self,request):
+        all = User.objects.values()
+        print (all)
+        return render(request,'login.html',{'all_v' : all})
+    
+    def post(self,request):
+        
+        user = authenticate(
+            username = request.POST['username'],
+            password = request.POST['password']
+        )
+        if user is not None:
+            login(request,user)
+            return render(request,'login.html',{
+                'logged' : True
+            })
+        return render(request,'login.html',{
+                'error' : 'Username or password is wrong'
+            })
+    
     

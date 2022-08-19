@@ -7,10 +7,10 @@
 
   {% if result == 'Valid' %}
       
-      <p>enter username{{user.username| slugify}}</p>
-      <p>your email {{user.email}}</p>
+      <p>enter username : {{user.username| slugify}}</p>
+      <p>your email  : {{user.email}}</p>
       
-      <p>password = {{user.password| truncatechars:'10'}}</p>
+      <p>password  :  {{user.password| truncatechars:'10'}}</p>
       
   {% elif result == 'Not Valid' %}
     <p>Not Valid date</p>
@@ -19,12 +19,13 @@
   {% endif %}
 
 
-
-  <form method= 'post' enctype="multipart/form-data">
+  {% if result != 'Valid' %}
+  <form method= 'POST' >
     {{form}}
     
-    <input type = "submit" value = "create user">
+    <input type = "submit" value = "create patient">
     {% csrf_token %}
+  {% endif %}
 
   {% endblock%}
 

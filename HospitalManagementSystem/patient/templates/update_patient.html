@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <h2>Hello update patient </h2>
+    {{patient_list}}
+    {{address_list}}
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="id" value ={{p_id}} readonly><br><br>
+        <input type="text" name="full_name" placeholder="enter new  full name"><br><br>
+        <input type="text" name="age" placeholder="enter new age"><br><br>
+        <input type="text" name="national_id" placeholder="enter new national id"><br><br>
+        <input type="text" name="email" placeholder="enter new email"><br><br>
+        <input type="text" name="phone1" placeholder="enter new phone 1"><br><br>
+        <input type="text" name="phone2" placeholder="enter new phone 2"><br><br>
+        <h3> enter new gender </h2>
+        <input type="radio" id="male" name="gender" value="male">
+		<label for="male">male</label><br>
+		<input type="radio" id="female" name="gender" value="female"> 
+  		<label for="female">female</label><br>
+    	<input type="radio" id="other" name="gender" value="other">
+     	<label for="other">other</label>
+
+         <br><br>
+         <br><br>
+         <h3> enter new address info </h2>
+         <input type="text" name="governorate" placeholder="enter new governorate "><br><br>
+         <input type="text" name="city" placeholder="enter new  city"><br><br>
+         <input type="text" name="line_1" placeholder="enter new line 1"><br><br>
+         <input type="text" name="line_2" placeholder="enter new line 2"><br><br>
+        <input type="submit" value="login">
+        {% csrf_token %}
+        
+  
+    </form>
+   
+        
+  
+    </form>
+
+</body>
+</html>

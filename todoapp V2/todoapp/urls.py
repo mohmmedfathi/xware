@@ -41,18 +41,18 @@ def retrieve_user(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    path('todo/',views.create_task),
+    path('todo/',views.Create_task_view.as_view()),
     path('todo/update',views.update_task ),
     path('todo/delete',views.delete_task),
     path('todo/retrieve',views.retrieve_task),
     
     path('user/list',views.list_users),
-    path('user/create',views.create_user),
+    path('user/create',views.CreateUserView.as_view()),
     path('user/update',views.update_user),
     path('user/delete',views.delete_user),
     path('user/retrieve',views.retrieve_user),
-    path('user/login',views.login),
-    path('user/logout',views.logout),
+    path('user/login',views.Login.as_view()),
+    path('user/logout',views.Logout.as_view()),
 ]
 
 # to access media file
