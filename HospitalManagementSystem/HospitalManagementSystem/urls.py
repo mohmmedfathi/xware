@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from user.views import (Login,Logout,RegisterUserView,resetpasswordView)
 from patient.views import (patientShow,patientUpdateClass,patientDelete,patientCreateClass,
-                           examinationShow,examinationUpdateClass,examinationDelete,examinationCreateClass)
+                           examinationShow,examinationUpdateClass,examinationDelete,examinationCreateClass,
+                           HomePage)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     
+    path('',HomePage.as_view()),
     path('auth/login/' ,Login.as_view() ),
     path('auth/logout/' ,Logout.as_view() ),
     path('auth/register/' ,RegisterUserView.as_view()),

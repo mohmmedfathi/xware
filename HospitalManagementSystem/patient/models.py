@@ -9,7 +9,7 @@ Gender = [
 ]
 class Patient(models.Model):
     #patient_id = models.IntegerField(models.AutoField(_("")))
-    id = models.IntegerField(primary_key=True, null = False)
+    #id = models.IntegerField(primary_key=True, null = False)
     full_name = models.CharField(max_length=100,null = False)
     age = models.IntegerField(null = False)
     national_id = models.IntegerField(null = False)

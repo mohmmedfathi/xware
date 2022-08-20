@@ -80,12 +80,8 @@ WSGI_APPLICATION = 'HospitalManagementSystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'HMS', 
-        'USER': 'postgres', 
-        'PASSWORD': '1',
-        'HOST': '127.0.0.1', 
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
