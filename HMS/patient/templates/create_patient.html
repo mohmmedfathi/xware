@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <h2>Hello create patient </h2>
+    {% if result == 'Valid' %}
+    {{user}}
+    {% elif result == 'Not Valid' %}
+    <p>Not Valid date</p>
+    {% else %}
+    <p>Please Enter Any Data</p>
+    {% endif %}
+    
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="id" placeholder="enter patient_id"><br><br>
+        <input type="text" name="full_name" placeholder="enter full name"><br><br>
+        <input type="text" name="age" placeholder="enter age"><br><br>
+        <input type="text" name="national_id" placeholder="enter national id"><br><br>
+        <input type="text" name="email" placeholder="enter email"><br><br>
+        <input type="text" name="phone1" placeholder="enter phone 1"><br><br>
+        <input type="text" name="phone2" placeholder="enter phone 2"><br><br>
+        
+        <input type="radio" id="male" name="gender" value="male">
+		<label for="male">male</label><br>
+		<input type="radio" id="female" name="gender" value="female"> 
+  		<label for="female">female</label><br>
+    	<input type="radio" id="other" name="gender" value="other">
+     	<label for="other">other</label>
+         <br><br>
+         <br><br>
+         <input type="text" name="governorate" placeholder="enter governorate "><br><br>
+         <input type="text" name="city" placeholder="enter city"><br><br>
+         <input type="text" name="line_1" placeholder="enter line 1"><br><br>
+         <input type="text" name="line_2" placeholder="enter line 2"><br><br>
+        <input type="submit" value="login">
+        {% csrf_token %}
+        
+  
+    </form>
+
+</body>
+</html>
